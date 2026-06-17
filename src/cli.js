@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 import { auditSite } from "./index.js";
-import { renderTextReport } from "./report.js";
+import { renderJsonReport, renderTextReport } from "./report.js";
 
 function printHelp() {
   console.log(`Agentic Commerce Kit
 
 Usage:
-  ackit audit <url>
-  agentic-commerce-kit audit <url>
+  ackit audit [--json] <url>
+  agentic-commerce-kit audit [--json] <url>
 
 Examples:
   ackit audit https://pixvoices.com
@@ -17,7 +17,7 @@ Examples:
 }
 
 async function main() {
-  const [command, targetUrl] = process.argv.slice(2);
+  const [command, ...args] = process.argv.slice(2);
 
   if (!command || command === "--help" || command === "-h") {
     printHelp();
@@ -31,6 +31,9 @@ async function main() {
     return;
   }
 
+  const json = args.includes("--json");
+  const targetUrl = args.find((arg) => arg !== "--json");
+
   if (!targetUrl) {
     console.error("Missing URL.");
     printHelp();
@@ -40,7 +43,7 @@ async function main() {
 
   try {
     const report = await auditSite(targetUrl);
-    console.log(renderTextReport(report));
+    console.log(json ? renderJsonReport(report) : renderTextReport(report));
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;

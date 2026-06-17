@@ -8,6 +8,12 @@ AI-agent readiness audits and MCP-ready commerce utilities for Shopify and ecomm
 npx agentic-commerce-kit audit https://your-store.com
 ```
 
+For CI jobs, agents, and dashboards, emit the same audit as machine-readable JSON:
+
+```bash
+npx agentic-commerce-kit audit --json https://your-store.com
+```
+
 Agentic Commerce Kit is a developer toolkit for the new AI-commerce stack: machine-readable product data, clean structured metadata, agent-safe store context, and MCP-ready ecommerce workflows.
 
 ## Why This Exists

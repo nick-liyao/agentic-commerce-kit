@@ -35,3 +35,7 @@ export function renderTextReport(report) {
 
   return lines.join("\n");
 }
+
+export function renderJsonReport(report) {
+  return JSON.stringify(report, null, 2);
+}
