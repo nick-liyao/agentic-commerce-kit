@@ -1,0 +1,30 @@
+{
+  "name": "agentic-commerce-kit",
+  "version": "0.1.0",
+  "description": "AI-agent readiness audits and MCP-ready commerce utilities for Shopify and ecommerce stores.",
+  "type": "module",
+  "bin": {
+    "agentic-commerce-kit": "./src/cli.js",
+    "ackit": "./src/cli.js"
+  },
+  "scripts": {
+    "audit": "node src/cli.js audit",
+    "test": "node --test"
+  },
+  "keywords": [
+    "mcp",
+    "shopify",
+    "ecommerce",
+    "ai-agent",
+    "agentic-commerce",
+    "vibe-coding",
+    "commerce",
+    "seo",
+    "llms"
+  ],
+  "author": "Nick Li",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
